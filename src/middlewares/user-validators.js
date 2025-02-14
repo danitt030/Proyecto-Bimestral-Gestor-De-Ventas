@@ -75,9 +75,7 @@ export const updateRoleValidator = [
     hasRoles("ADMIN_ROLE"),
     param("uid").isMongoId().withMessage("No es un ID válido de MongoDB"),
     param("uid").custom(userExists),
-    body("newRole")
-        .isString().withMessage("El rol debe ser una cadena de texto")
-        .isIn(["ADMIN_ROLE", "USER_ROLE"]).withMessage("Rol no válido"),
+    body("newRole").isString().withMessage("El rol debe ser una cadena de texto").isIn(["ADMIN_ROLE", "CLIENT_ROLE"]).withMessage("Rol no válido"),
     validarCampos,
     handleErrors
 ];

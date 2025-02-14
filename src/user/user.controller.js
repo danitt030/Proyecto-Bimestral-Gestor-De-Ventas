@@ -212,4 +212,4 @@ export const updateRole = async (req, res) => {
             error: err.message
         });
     }
-};
+}
