@@ -6,6 +6,7 @@ import helmet from "helmet";
 import morgan from "morgan";
 import { dbConnection } from "./mongo.js";
 import { adminPorDefault } from "../src/user/user.controller.js";
+import { categoriaPorDefecto } from "../src/categoria/categoria.controller.js";
 import authRoutes from "../src/auth/auth.routes.js";
 import userRoutes from "../src/user/user.routes.js";
 import categoriaRoutes from "../src/categoria/categoria.routes.js";
@@ -33,6 +34,9 @@ const conectarDB = async () => {
         await dbConnection()
 
         await adminPorDefault()
+
+        await categoriaPorDefecto()
+
     } catch (err) {
         console.log(`Database connection failed: ${err}`);
         process.exit(1);
