@@ -36,6 +36,7 @@ const conectarDB = async () => {
         await adminPorDefault()
 
         await categoriaPorDefecto()
+
     } catch (err) {
         console.log(`Database connection failed: ${err}`);
         process.exit(1);
