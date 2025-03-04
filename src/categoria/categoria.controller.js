@@ -76,3 +76,19 @@ export const eliminarCategoria = async (req, res) => {
         })
     }
 }
+
+export const categoriaPorDefecto = async () => {
+    try {
+        const categoriaPorDefecto = await Categoria.findOne({ nombre: "Categoria por defecto" });
+
+        if (!categoriaPorDefecto) {
+            const catDefec = {
+                nombre: "Categoria por defecto",
+                descripcion: "Categoria por defecto para productos sin categoria",
+            };
+            await Categoria.create(catDefec);
+        }
+    } catch (err) {
+        console.error("Error al crear la categoria por defecto:", err.message);
+    }
+}

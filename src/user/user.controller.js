@@ -1,10 +1,28 @@
 import { hash, verify } from "argon2";
 import User from "./user.model.js";
-import fs from "fs/promises";
-import { join, dirname } from "path";
-import { fileURLToPath } from "url";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
+export const adminPorDefault = async () => {
+    try {
+        const adminDefault = await User.findOne({ role: "ADMIN_ROLE" });
+
+        if (!adminDefault) {
+            const contraseña = await hash("Cremas30*");
+
+            const adminData = {
+                name: "Daniel Andrés",
+                surname: "Tuy Tuchez",
+                username: "danitt030",
+                email: "danieltuy@gmail.com",
+                password: contraseña,
+                role: "ADMIN_ROLE",
+                phone: "12345678",
+            };
+            await User.create(adminData);
+        }
+    } catch (errores) {
+        console.error("Error al crear el administrador por defecto:", errores);
+    }
+};
 
 export const getUserById = async (req, res) => {
     try {
@@ -58,24 +76,31 @@ export const getUsers = async (req, res) => {
 };
 
 export const deleteUser = async (req, res) => {
-    try{
-        const { uid } = req.params
-        
-        const user = await User.findByIdAndUpdate(uid, {status: false}, {new: true})
+    try {
+        const { uid } = req.params;
+
+        const user = await User.findById(uid);
+        if (!user) {
+            return res.status(404).json({
+                success: false,
+                message: "Usuario no encontrado"
+            });
+        }
+
+        await User.findByIdAndDelete(uid);
 
         return res.status(200).json({
             success: true,
-            message: "Usuario eliminado",
-            user
-        })
-    }catch(err){
+            message: "Usuario eliminado correctamente"
+        });
+    } catch (err) {
         return res.status(500).json({
             success: false,
             message: "Error al eliminar el usuario",
             error: err.message
-        })
+        });
     }
-}
+};
 
 export const updatePassword = async (req, res) => {
     try {
@@ -131,42 +156,6 @@ export const updateUser = async (req, res) => {
     }
 };
 
-export const updateProfilePicture = async (req, res) => {
-    try {
-        const { uid } = req.params;
-        let newProfilePicture = req.file ? req.file.filename : null;
-
-        if (!newProfilePicture) {
-            return res.status(400).json({
-                success: false,
-                msg: 'No se proporcionó una nueva foto de perfil',
-            });
-        }
-
-        const user = await User.findById(uid);
-
-        if (user.profilePicture) {
-            const oldProfilePicturePath = join(__dirname, "../../public/uploads/profile-pictures", user.profilePicture);
-            await fs.unlink(oldProfilePicturePath);
-        }
-
-        user.profilePicture = newProfilePicture;
-        await user.save();
-
-        res.status(200).json({
-            success: true,
-            msg: 'Foto de perfil actualizada',
-            user,
-        });
-    } catch (err) {
-        res.status(500).json({
-            success: false,
-            msg: 'Error al actualizar la foto de perfil',
-            error: err.message
-        });
-    }
-};
-
 export const updateRole = async (req, res) => {
     try {
         const { uid } = req.params;
@@ -213,3 +202,39 @@ export const updateRole = async (req, res) => {
         });
     }
 }
+
+export const eliminarCuenta = async (req, res) => {
+    try {
+        const { uid } = req.params;
+        const { password } = req.body;
+ 
+        const user = await User.findById(uid);
+        if (!user) {
+            return res.status(404).json({
+                success: false,
+                message: "Usuario no encontrado"
+            });
+        }
+
+        const isValidPassword = await verify(user.password, password);
+        if (!isValidPassword) {
+            return res.status(400).json({
+                success: false,
+                message: "La contraseña es incorrecta"
+            });
+        }        
+
+        await User.findByIdAndDelete(uid);
+
+        return res.status(200).json({
+            success: true,
+            message: "Cuenta eliminada correctamente"
+        });
+    } catch (err) {
+        return res.status(500).json({
+            success: false,
+            message: "Error al eliminar la cuenta",
+            error: err.message
+        });
+    }
+};

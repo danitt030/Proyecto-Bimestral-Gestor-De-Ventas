@@ -29,5 +29,13 @@
     "proyecto-bim-gestor-de-ventas": "file:",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danitt030/Proyecto-Bimestral-Gestor-De-Ventas.git"
+  },
+  "bugs": {
+    "url": "https://github.com/danitt030/Proyecto-Bimestral-Gestor-De-Ventas/issues"
+  },
+  "homepage": "https://github.com/danitt030/Proyecto-Bimestral-Gestor-De-Ventas#readme"
 }
