@@ -5,6 +5,7 @@ import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
 import { dbConnection } from "./mongo.js";
+import { adminPorDefault } from "../src/user/user.controller.js";
 import authRoutes from "../src/auth/auth.routes.js";
 import userRoutes from "../src/user/user.routes.js";
 import categoriaRoutes from "../src/categoria/categoria.routes.js";
@@ -29,7 +30,9 @@ const routes = (app) => {
 
 const conectarDB = async () => {
     try {
-        await dbConnection();
+        await dbConnection()
+
+        await adminPorDefault()
     } catch (err) {
         console.log(`Database connection failed: ${err}`);
         process.exit(1);
@@ -37,17 +40,14 @@ const conectarDB = async () => {
 };
 
 export const initServer = () => {
-    const app = express();
-    try {
-        middlewares(app);
-        conectarDB();
-        routes(app);
-        const port = process.env.PORT || 3001; // Asegúrate de que el puerto sea 3001
-        app.listen(port, () => {
-            console.log(`Server running on port ${port} matutina`);
-        });
-    } catch (err) {
-        console.log(`Server init failed: ${err}`);
+    const app = express()
+    try{
+        middlewares(app)
+        conectarDB()
+        routes(app)
+        app.listen(process.env.PORT)
+        console.log(`Server running on port ${process.env.PORT}`)
+    }catch(err){
+        console.log(`Server init failed: ${err}`)
     }
-};
-
+}
