@@ -5,9 +5,9 @@ const options ={
     swaggerDefinition:{
         openapi:"3.0.0",
         info:{
-            title: "Adoption System API",
+            title: "Gestor de ventas API",
             version: "1.0.0",
-            description: "API para un sistema de gestión de adopciones de mascotas",
+            description: "API de gestor de ventas sobre un supermercado",
             contact:{
                 name: "Daniel Tuy",
                 email: "dtuy-2023313@kinal.org.gt"
