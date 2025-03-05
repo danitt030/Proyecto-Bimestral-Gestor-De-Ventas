@@ -1,5 +1,6 @@
 import User from "../user/user.model.js"
 import Categoria from "../categoria/categoria.model.js"
+import Producto from "../productos/productos.model.js"
 
 export const emailExists = async (email = "") => {
     const existe = await User.findOne({email})
@@ -23,9 +24,23 @@ export const userExists = async (uid = " ") => {
     }
 }
 
-export const categoriaExists = async (nombre) => {
-    const categoria = await Categoria.findOne({ nombre })
-    if (categoria) {
-        throw new Error(`La categoría con el nombre ${nombre} ya existe`);
+export const categoriaExists = async (uid = " ") => {
+    const categoria = await Categoria.findById(uid)
+    if (!categoria) {
+        throw new Error("Categoría no encontrada");
+    }
+};
+
+export const productoExists = async (uid = " ") => {
+    const producto = await Producto.findById(uid)
+    if (!producto) {
+        throw new Error("Producto no encontrado");
+    }
+};
+
+export const nombreProductoExists = async (nombre = " ") => {
+    const producto = await Producto.findOne({ nombreProducto: nombre })
+    if (!producto) {
+        throw new Error("Producto no encontrado");
     }
 };

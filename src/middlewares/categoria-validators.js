@@ -9,23 +9,23 @@ import { hasRoles } from "./validate-roles.js";
 export const createCategoriaValidator = [
     validateJWT,
     hasRoles("ADMIN_ROLE"),
-    body("nombre").notEmpty().withMessage("El nombre de la categoria es requerido").custom(categoriaExists),
+    body("nombre").notEmpty().withMessage("El nombre de la categoria es requerido"),
     body("descripcion").notEmpty().withMessage("La descripcion de la categoria es requerida"),
     validarCampos,
     deleteFileOnError,
     handleErrors
-];
+]
 
 export const editarCategoriaValidator = [
     validateJWT,
     hasRoles("ADMIN_ROLE"),
     param("uid").isMongoId().withMessage("No es un ID válido de MongoDB"),
     param("uid").custom(categoriaExists),
-    body("nombre").not().isEmpty().withMessage("El nombre de la categoria es requerido"),
+    body("nombre").not().isEmpty().withMessage("El nombre de la categoria es requerido").custom(categoriaExists),
     body("descripcion").not().isEmpty().withMessage("La descripcion de la categoria es requerida"),
     validarCampos,
     handleErrors
-];
+]
 
 export const eliminarCategoriaValidator = [
     validateJWT,
@@ -34,6 +34,4 @@ export const eliminarCategoriaValidator = [
     param("uid").custom(categoriaExists),
     validarCampos,
     handleErrors
-];
-
-
+]
