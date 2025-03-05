@@ -1,4 +1,5 @@
 import Categoria from "./categoria.model.js";
+import Producto from "../productos/productos.model.js";
 
 export const crearCategoria = async (req, res) => {
     try {
@@ -63,20 +64,36 @@ export const editarCategoria = async (req, res) =>{
 export const eliminarCategoria = async (req, res) => {
     try {
         const { uid } = req.params;
+
+        let categoriaPorDefecto = await Categoria.findOne({ nombre: "Categoria por defecto" });
+        if (!categoriaPorDefecto) {
+            categoriaPorDefecto = await Categoria.create({
+                nombre: "Categoria por defecto",
+                descripcion: "Categoria por defecto para productos sin categoria",
+            });
+        }
+
+        await Producto.updateMany({ categoria: uid }, { categoria: categoriaPorDefecto._id });
+
         const categoria = await Categoria.findByIdAndDelete(uid);
+        if (!categoria) {
+            return res.status(404).json({
+                message: "Categoria no encontrada",
+            });
+        }
+
         return res.status(200).json({
             message: "Categoria eliminada",
             nombre: categoria.nombre,
             descripcion: categoria.descripcion,
-        })
+        });
     } catch (err) {
         return res.status(500).json({
             message: "Error al eliminar la categoria",
-            error: err.message
-        })
+            error: err.message,
+        });
     }
-}
-
+};
 export const categoriaPorDefecto = async () => {
     try {
         const categoriaPorDefecto = await Categoria.findOne({ nombre: "Categoria por defecto" });
