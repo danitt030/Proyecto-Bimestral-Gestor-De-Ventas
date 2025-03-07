@@ -167,7 +167,6 @@ export const obtenerFacturasPorUsuario = async (req, res) => {
         });
     }
 }
-
 const generarFacturaPDF = async (factura) => {
     return new Promise((resolve, reject) => {
         try {
@@ -183,19 +182,26 @@ const generarFacturaPDF = async (factura) => {
             const stream = fs.createWriteStream(filePath);
             doc.pipe(stream);
 
-            doc.font('Courier-Bold').fontSize(12).text('SUPERMERCADO EL REMONTADAS', { align: 'center' }); 
-            doc.fontSize(10).text('""', { align: 'center' });
-            doc.fontSize(9).text('FACTURA', { align: 'center' });
+            doc.font('Courier-Bold').fontSize(12).text('SUPERMERCADO EL REMONTADAS', { align: 'center' });
             doc.moveDown();
 
+            doc.font('Courier').fontSize(9).text(`ID Factura: ${factura._id}`);
+            doc.text(`ID Usuario: ${factura.idUsuario}`);
+            doc.text(`Fecha: ${new Date(factura.fecha).toLocaleDateString()}`);
+            doc.moveDown();
+
+            doc.font('Courier-Bold').fontSize(10).text('PRODUCTO        PRECIO    CANTIDAD', { align: 'center' });
+            doc.text('---------------------------------', { align: 'center' });
+
             factura.productos.forEach((producto) => {
-                const nombre = producto.nombreProducto.toUpperCase().slice(0, 20).padEnd(20, ' ');
-                const precio = producto.precioProducto.toFixed(2);
-                doc.font('Courier').fontSize(10).text(`${nombre} ${precio} Q`, { align: 'left' });
+                const nombre = producto.nombreProducto.toUpperCase().slice(0, 15).padEnd(15, ' ');
+                const precio = `Q${producto.precioProducto.toFixed(2)}`.padEnd(8, ' ');
+                const cantidad = producto.cantidad.toString().padEnd(8, ' ');
+                doc.font('Courier').fontSize(10).text(`${nombre} ${precio} ${cantidad}`, { align: 'center' });
             });
 
             doc.moveDown();
-            doc.text('--------------------------', { align: 'center' });
+            doc.text('---------------------------------', { align: 'center' });
 
             doc.font('Courier-Bold').fontSize(11).text(`TOTAL: Q${factura.total.toFixed(2)}`, { align: 'right' });
 
@@ -211,4 +217,5 @@ const generarFacturaPDF = async (factura) => {
             reject(error);
         }
     });
-}
+};
+
