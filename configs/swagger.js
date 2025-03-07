@@ -15,13 +15,17 @@ const options ={
         },
         servers:[
             {
-                url: "http://127.0.0.1:3001/gestorDeVentas/v1"
+                url: "http://127.0.0.1:3002/gestorDeVentas/v1"
             }
         ]
     },
     apis:[
         "./src/auth/auth.routes.js",
-        "./src/user/user.routes.js"
+        "./src/user/user.routes.js",
+        "./src/categoria/categoria.routes.js",
+        "./src/productos/productos.routes.js",
+        "./src/carritoDeCompras/carritoDeCompras.routes.js",
+        "./src/factura/factura.routes.js",
     ]
 }
 

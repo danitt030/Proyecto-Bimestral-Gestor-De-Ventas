@@ -91,4 +91,4 @@ export const productosPorCategoriaValidator = [
     validarCampos,
     deleteFileOnError,
     handleErrors
-];
+]

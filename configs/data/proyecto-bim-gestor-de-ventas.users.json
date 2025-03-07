@@ -1,0 +1,39 @@
+[{
+  "_id": {
+    "$oid": "67c7e061fb135bc8ecebb2e4"
+  },
+  "name": "Daniel",
+  "surname": "Tuy",
+  "username": "danitt030",
+  "email": "danieltuy@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$pl6HbnyVS8jH4D5CvZfHFw$tV9oDWJWDrAzg/ot1VJs+ZPe5AAa2eHhdkbpR+T1vFc",
+  "phone": "12345678",
+  "role": "ADMIN_ROLE",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "67ca7d30c562094084f099d3"
+  },
+  "name": "Andres Gabriel",
+  "surname": "Tuy Tuchez",
+  "username": "andTuy12",
+  "email": "andTuy12@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$fyj5Z4pxXoSeq90zAvo+4w$M14afy3mHMNMFuzhymW+mBy58Yb9AvP5e8HCnQO+LI0",
+  "phone": "12345678",
+  "role": "CLIENT_ROLE",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "67ca80fccb998f8aa1dc3476"
+  },
+  "name": "Eduardo",
+  "surname": "Escobar",
+  "username": "escobar520",
+  "email": "escobar520@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$lXZMVMPgIzZ6O2FpjiicxQ$NbJ8QDNbmeHmckLAltUJcQnpYg+D4yagLVOJ+Hmz6M4",
+  "phone": "12345678",
+  "role": "ADMIN_ROLE",
+  "status": true
+}]

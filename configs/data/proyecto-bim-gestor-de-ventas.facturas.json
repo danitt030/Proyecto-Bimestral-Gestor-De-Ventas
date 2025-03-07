@@ -1,0 +1,31 @@
+[{
+  "_id": {
+    "$oid": "67ca93da9611ec9ea2724c0d"
+  },
+  "idUsuario": {
+    "$oid": "67ca7d30c562094084f099d3"
+  },
+  "productos": [
+    {
+      "idProducto": {
+        "$oid": "67ca912f9611ec9ea2724bcd"
+      },
+      "nombreProducto": "Tapacubos",
+      "cantidad": 2,
+      "precioProducto": 25,
+      "_id": {
+        "$oid": "67ca94c5db29cf4e32247d5a"
+      }
+    }
+  ],
+  "total": 50,
+  "fecha": {
+    "$date": "2025-03-07T06:36:10.636Z"
+  },
+  "createdAt": {
+    "$date": "2025-03-07T06:36:10.637Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-07T06:40:05.162Z"
+  }
+}]

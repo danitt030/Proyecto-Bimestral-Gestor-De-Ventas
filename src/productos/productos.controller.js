@@ -172,7 +172,6 @@ export const productosPorCategoria = async (req, res) => {
 
 export const buscarProductosPorNombre = async (req, res) => {
     try {
-        console.log("Request Body:", req.body); 
         const { nombreProducto } = req.body; 
 
         if (!nombreProducto) {
