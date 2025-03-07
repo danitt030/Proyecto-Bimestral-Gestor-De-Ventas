@@ -9,7 +9,7 @@ const categoriaSchema = Schema({
     descripcion:{
         type: String,
         required: [true, "La descripcion de la categoria es requerida"],
-        maxLenght: [250, "La descripcion de la categoria no puede exceder de los 500 caracteres"]
+        maxLenght: [250, "La descripcion de la categoria no puede exceder de los 250 caracteres"]
     },
     status: {
         type: Boolean,

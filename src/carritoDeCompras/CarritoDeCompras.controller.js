@@ -45,13 +45,13 @@ export const agregarProductoCarrito = async (req, res) => {
             success: true,
             message: "Producto agregado al carrito de compras",
             carrito
-        })
+        });
     } catch (err) {
         return res.status(500).json({
             success: false,
             message: "Error al agregar el producto al carrito de compras",
             error: err.message
-        })
+        });
     }
 }
 
@@ -73,14 +73,14 @@ export const listarProductosCarrito = async (req, res) => {
             message: "Productos en el carrito de compras",
             productos: carrito.productos,
             cantidadTotal: carrito.cantidadTotal
-        })
+        });
 
     } catch (err) {
         return res.status(500).json({
             success: false,
             message: "Error al listar los productos en el carrito de compras",
             error: err.message
-        })
+        });
     }
 }
 

@@ -1,0 +1,88 @@
+[{
+  "_id": {
+    "$oid": "67c7e061fb135bc8ecebb2e7"
+  },
+  "nombre": "Categoria por defecto",
+  "descripcion": "Categoria por defecto para productos sin categoria",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "67ca7ddefe6718486d9b8e7d"
+  },
+  "nombre": "Electrónica",
+  "descripcion": "Productos electrónicos",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "67ca7df5fe6718486d9b8e80"
+  },
+  "nombre": "Muebles",
+  "descripcion": "Muebles de calidad para el hogar y oficina.",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "67ca7e0afe6718486d9b8e83"
+  },
+  "nombre": "Ropa",
+  "descripcion": "Ropa de moda para todas las edades.",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "67ca7e1afe6718486d9b8e86"
+  },
+  "nombre": "Alimentos",
+  "descripcion": "Productos alimenticios frescos y variados.",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "67ca7e2efe6718486d9b8e89"
+  },
+  "nombre": "Juguetes",
+  "descripcion": "Juguetes educativos y divertidos para niños.",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "67ca7e3efe6718486d9b8e8c"
+  },
+  "nombre": "Hogar",
+  "descripcion": "Artículos para el hogar que facilitan tu día a día.",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "67ca7e4dfe6718486d9b8e8f"
+  },
+  "nombre": "Deportes",
+  "descripcion": "Equipos y accesorios para todas las disciplinas deportivas.",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "67ca7e5dfe6718486d9b8e92"
+  },
+  "nombre": "Libros",
+  "descripcion": "Libros de diferentes géneros para todos los gustos.",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "67ca7e6efe6718486d9b8e95"
+  },
+  "nombre": "Belleza",
+  "descripcion": "Productos de belleza y cuidado personal.",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "67ca7e7dfe6718486d9b8e98"
+  },
+  "nombre": "Automóviles",
+  "descripcion": "Accesorios y repuestos para vehículos.",
+  "status": true
+}]

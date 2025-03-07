@@ -237,4 +237,4 @@ export const eliminarCuenta = async (req, res) => {
             error: err.message
         });
     }
-};
+}

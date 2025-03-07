@@ -1,0 +1,1241 @@
+{
+	"info": {
+		"_postman_id": "5bc76665-3a3f-4b91-bf42-b2976dd6ee3d",
+		"name": "Gestor de Ventas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37636976"
+	},
+	"item": [
+		{
+			"name": "Admins",
+			"item": [
+				{
+					"name": "Register Admins",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Eduardo\",\r\n    \"surname\": \"Escobar\",\r\n    \"username\": \"escobar520\",\r\n    \"email\": \"escobar520@gmail.com\",\r\n    \"password\": \"Cremas30*\",\r\n    \"phone\": \"12345678\",\r\n    \"role\": \"ADMIN_ROLE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3002/gestorDeVentas/v1/auth/register",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3002",
+							"path": [
+								"gestorDeVentas",
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"danieltuy@gmail.com\",\r\n    \"password\": \"Cremas30*\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3002/gestorDeVentas/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3002",
+							"path": [
+								"gestorDeVentas",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar usuario ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3002/gestorDeVentas/v1/user/findUser/67c7e061fb135bc8ecebb2e4",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3002",
+							"path": [
+								"gestorDeVentas",
+								"v1",
+								"user",
+								"findUser",
+								"67c7e061fb135bc8ecebb2e4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Usuarios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3002/gestorDeVentas/v1/user",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3002",
+							"path": [
+								"gestorDeVentas",
+								"v1",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Usuario",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Daniel\",\r\n    \"surname\":\"Tuy\",\r\n    \"role\": \"ADMIN_ROLE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3002/gestorDeVentas/v1/user/updateUser/67c7e061fb135bc8ecebb2e4",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3002",
+							"path": [
+								"gestorDeVentas",
+								"v1",
+								"user",
+								"updateUser",
+								"67c7e061fb135bc8ecebb2e4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Usuario",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3002/gestorDeVentas/v1/user/deleteUser/67c7e061fb135bc8ecebb2e4",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3002",
+							"path": [
+								"gestorDeVentas",
+								"v1",
+								"user",
+								"deleteUser",
+								"67c7e061fb135bc8ecebb2e4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Autenticacion de usuarios clientes",
+			"item": [
+				{
+					"name": "Register Clientes",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Andres",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "Tuy",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "andTuy12",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "andTuy12@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Cremas30*",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "role",
+									"value": "CLIENT_ROLE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3002/gestorDeVentas/v1/auth/register",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3002",
+							"path": [
+								"gestorDeVentas",
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Clientes",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"andTuy12@gmail.com\",\r\n    \"password\": \"Cremas30*\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3002/gestorDeVentas/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3002",
+							"path": [
+								"gestorDeVentas",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Cliente",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Andres Gabriel\",\r\n    \"surname\":\"Tuy Tuchez\",\r\n    \"username\": \"andTuy12\",\r\n    \"email\": \"andTuy12@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3002/gestorDeVentas/v1/user/updateUser/67ca7d30c562094084f099d3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3002",
+							"path": [
+								"gestorDeVentas",
+								"v1",
+								"user",
+								"updateUser",
+								"67ca7d30c562094084f099d3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Cliente",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M2NjExZGI2NTQ2ZmEzMDRjOTAyYTAiLCJpYXQiOjE3NDEwNTQzODYsImV4cCI6MTc0MTA3MjM4Nn0.Mf9R9XhMCzmjGL_s_jkoGN74wS2V1WgIyjWas1vLMvc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": \"Cremas30**\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3002/gestorDeVentas/v1/user/eliminarCuenta/67ca7d30c562094084f099d3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3002",
+							"path": [
+								"gestorDeVentas",
+								"v1",
+								"user",
+								"eliminarCuenta",
+								"67ca7d30c562094084f099d3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Contraseña",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"oldPassword\": \"Cremas30\",\r\n    \"newPassword\": \"Cremas30*\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3002/gestorDeVentas/v1/user/updatePassword/67ca7d30c562094084f099d3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3002",
+							"path": [
+								"gestorDeVentas",
+								"v1",
+								"user",
+								"updatePassword",
+								"67ca7d30c562094084f099d3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modificar Role",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3ZTA2MWZiMTM1YmM4ZWNlYmIyZTQiLCJpYXQiOjE3NDEzMjk1NzYsImV4cCI6MTc0MTQxNTk3Nn0.pVnKkgVDMFv3qgzWKjrqYpRtSjQbnM2OOwhVtb_UeTc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"newRole\": \"CLIENT_ROLE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3002/gestorDeVentas/v1/user/updateRole/67ca7d30c562094084f099d3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3002",
+							"path": [
+								"gestorDeVentas",
+								"v1",
+								"user",
+								"updateRole",
+								"67ca7d30c562094084f099d3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categoria",
+			"item": [
+				{
+					"name": "Crear categoria",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3ZTA2MWZiMTM1YmM4ZWNlYmIyZTQiLCJpYXQiOjE3NDEzMjM1OTgsImV4cCI6MTc0MTQwOTk5OH0.92R6T3OXPG4nRl3KAtPMJ4_WRa3oJ5Jx0uRSCS0f7W8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Automóviles\",\r\n    \"descripcion\": \"Accesorios y repuestos para vehículos.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3002/gestorDeVentas/v1/categoria/crearCategoria",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3002",
+							"path": [
+								"gestorDeVentas",
+								"v1",
+								"categoria",
+								"crearCategoria"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Categorias",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3ZTA2MWZiMTM1YmM4ZWNlYmIyZTQiLCJpYXQiOjE3NDEzMjM1OTgsImV4cCI6MTc0MTQwOTk5OH0.92R6T3OXPG4nRl3KAtPMJ4_WRa3oJ5Jx0uRSCS0f7W8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3002/gestorDeVentas/v1/categoria/listarCategorias",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3002",
+							"path": [
+								"gestorDeVentas",
+								"v1",
+								"categoria",
+								"listarCategorias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar categoria",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3ZTA2MWZiMTM1YmM4ZWNlYmIyZTQiLCJpYXQiOjE3NDEzMjM1OTgsImV4cCI6MTc0MTQwOTk5OH0.92R6T3OXPG4nRl3KAtPMJ4_WRa3oJ5Jx0uRSCS0f7W8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Electrónica\",\r\n    \"descripcion\": \"Productos electrónicos\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3002/gestorDeVentas/v1/categoria/editarCategoria/67ca7ddefe6718486d9b8e7d",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3002",
+							"path": [
+								"gestorDeVentas",
+								"v1",
+								"categoria",
+								"editarCategoria",
+								"67ca7ddefe6718486d9b8e7d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar categoria",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3ZTA2MWZiMTM1YmM4ZWNlYmIyZTQiLCJpYXQiOjE3NDEzMjM1OTgsImV4cCI6MTc0MTQwOTk5OH0.92R6T3OXPG4nRl3KAtPMJ4_WRa3oJ5Jx0uRSCS0f7W8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3002/gestorDeVentas/v1/categoria/eliminarCategoria/67ca7e7dfe6718486d9b8e98",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3002",
+							"path": [
+								"gestorDeVentas",
+								"v1",
+								"categoria",
+								"eliminarCategoria",
+								"67ca7e7dfe6718486d9b8e98"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Producto",
+			"item": [
+				{
+					"name": "Agregar Producto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3ZTA2MWZiMTM1YmM4ZWNlYmIyZTQiLCJpYXQiOjE3NDEzMjM1OTgsImV4cCI6MTc0MTQwOTk5OH0.92R6T3OXPG4nRl3KAtPMJ4_WRa3oJ5Jx0uRSCS0f7W8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombreProducto\": \"Tapacubos\",\r\n    \"descripcionProducto\": \"Juego de tapacubos decorativos para mejorar el aspecto de tus ruedas.\",\r\n    \"precioProducto\": 25,\r\n    \"stock\": 120,\r\n    \"categoria\": \"67ca7e7dfe6718486d9b8e98\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3002/gestorDeVentas/v1/productos/agregarProducto",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3002",
+							"path": [
+								"gestorDeVentas",
+								"v1",
+								"productos",
+								"agregarProducto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListarProductos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3ZTA2MWZiMTM1YmM4ZWNlYmIyZTQiLCJpYXQiOjE3NDEzMjM1OTgsImV4cCI6MTc0MTQwOTk5OH0.92R6T3OXPG4nRl3KAtPMJ4_WRa3oJ5Jx0uRSCS0f7W8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3002/gestorDeVentas/v1/productos/ListarProductos",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3002",
+							"path": [
+								"gestorDeVentas",
+								"v1",
+								"productos",
+								"ListarProductos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Producto por Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3ZTA2MWZiMTM1YmM4ZWNlYmIyZTQiLCJpYXQiOjE3NDEzMjM1OTgsImV4cCI6MTc0MTQwOTk5OH0.92R6T3OXPG4nRl3KAtPMJ4_WRa3oJ5Jx0uRSCS0f7W8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3002/gestorDeVentas/v1/productos/listarProductoPorId/67ca8e239611ec9ea2724b32",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3002",
+							"path": [
+								"gestorDeVentas",
+								"v1",
+								"productos",
+								"listarProductoPorId",
+								"67ca8e239611ec9ea2724b32"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Producto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3ZTA2MWZiMTM1YmM4ZWNlYmIyZTQiLCJpYXQiOjE3NDEzMjM1OTgsImV4cCI6MTc0MTQwOTk5OH0.92R6T3OXPG4nRl3KAtPMJ4_WRa3oJ5Jx0uRSCS0f7W8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombreProducto\": \"Tapacubos\",\r\n    \"descripcionProducto\": \"Juego de tapacubos decorativos para mejorar el aspecto de tus ruedas y te llevas una excelente experiencia\",\r\n    \"precioProducto\": 25.00,\r\n    \"stock\": 120,\r\n    \"categoria\": \"67ca7e7dfe6718486d9b8e98\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3002/gestorDeVentas/v1/productos/actualizarProducto/67ca912f9611ec9ea2724bcd",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3002",
+							"path": [
+								"gestorDeVentas",
+								"v1",
+								"productos",
+								"actualizarProducto",
+								"67ca912f9611ec9ea2724bcd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar productos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3ZTA2MWZiMTM1YmM4ZWNlYmIyZTQiLCJpYXQiOjE3NDEzMjM1OTgsImV4cCI6MTc0MTQwOTk5OH0.92R6T3OXPG4nRl3KAtPMJ4_WRa3oJ5Jx0uRSCS0f7W8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3002/gestorDeVentas/v1/productos/eliminarProducto/67ca912f9611ec9ea2724bcd",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3002",
+							"path": [
+								"gestorDeVentas",
+								"v1",
+								"productos",
+								"eliminarProducto",
+								"67ca912f9611ec9ea2724bcd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Productos agotados",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3ZTA2MWZiMTM1YmM4ZWNlYmIyZTQiLCJpYXQiOjE3NDEzMjM1OTgsImV4cCI6MTc0MTQwOTk5OH0.92R6T3OXPG4nRl3KAtPMJ4_WRa3oJ5Jx0uRSCS0f7W8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3002/gestorDeVentas/v1/productos/productosAgotados",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3002",
+							"path": [
+								"gestorDeVentas",
+								"v1",
+								"productos",
+								"productosAgotados"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Productos mas vendidos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3ZTA2MWZiMTM1YmM4ZWNlYmIyZTQiLCJpYXQiOjE3NDEzMjM1OTgsImV4cCI6MTc0MTQwOTk5OH0.92R6T3OXPG4nRl3KAtPMJ4_WRa3oJ5Jx0uRSCS0f7W8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3002/gestorDeVentas/v1/productos/productosMasVendidos",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3002",
+							"path": [
+								"gestorDeVentas",
+								"v1",
+								"productos",
+								"productosMasVendidos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Productos por categoria",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3ZTA2MWZiMTM1YmM4ZWNlYmIyZTQiLCJpYXQiOjE3NDEzMjM1OTgsImV4cCI6MTc0MTQwOTk5OH0.92R6T3OXPG4nRl3KAtPMJ4_WRa3oJ5Jx0uRSCS0f7W8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3002/gestorDeVentas/v1/productos/productosPorCategoria/67ca7e7dfe6718486d9b8e98",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3002",
+							"path": [
+								"gestorDeVentas",
+								"v1",
+								"productos",
+								"productosPorCategoria",
+								"67ca7e7dfe6718486d9b8e98"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar producto por nombre",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3ZTA2MWZiMTM1YmM4ZWNlYmIyZTQiLCJpYXQiOjE3NDEzMjM1OTgsImV4cCI6MTc0MTQwOTk5OH0.92R6T3OXPG4nRl3KAtPMJ4_WRa3oJ5Jx0uRSCS0f7W8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombreProducto\": \"Tapacubos\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3002/gestorDeVentas/v1/productos/buscarProductosPorNombre",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3002",
+							"path": [
+								"gestorDeVentas",
+								"v1",
+								"productos",
+								"buscarProductosPorNombre"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Carrito de compras",
+			"item": [
+				{
+					"name": "AgregarProductosCarrito",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2NhN2QzMGM1NjIwOTQwODRmMDk5ZDMiLCJpYXQiOjE3NDEzMjkyMjUsImV4cCI6MTc0MTQxNTYyNX0.NZKN9uRiCeVaXodn3Nyz4ncymGlv853cCFLrdeWoY9E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idProducto\": \"67ca91169611ec9ea2724bc8\", \r\n    \"cantidad\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3002/gestorDeVentas/v1/carrito/agregarProducto",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3002",
+							"path": [
+								"gestorDeVentas",
+								"v1",
+								"carrito",
+								"agregarProducto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listarCarrito",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2NhN2QzMGM1NjIwOTQwODRmMDk5ZDMiLCJpYXQiOjE3NDEzMjkyMjUsImV4cCI6MTc0MTQxNTYyNX0.NZKN9uRiCeVaXodn3Nyz4ncymGlv853cCFLrdeWoY9E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3002/gestorDeVentas/v1/carrito/listarCarrito",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3002",
+							"path": [
+								"gestorDeVentas",
+								"v1",
+								"carrito",
+								"listarCarrito"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Producto carrito",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2NhN2QzMGM1NjIwOTQwODRmMDk5ZDMiLCJpYXQiOjE3NDEzMjkyMjUsImV4cCI6MTc0MTQxNTYyNX0.NZKN9uRiCeVaXodn3Nyz4ncymGlv853cCFLrdeWoY9E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3002/gestorDeVentas/v1/carrito/eliminarProducto/67ca91169611ec9ea2724bc8",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3002",
+							"path": [
+								"gestorDeVentas",
+								"v1",
+								"carrito",
+								"eliminarProducto",
+								"67ca91169611ec9ea2724bc8"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Factura",
+			"item": [
+				{
+					"name": "Proceso de compra",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2NhN2QzMGM1NjIwOTQwODRmMDk5ZDMiLCJpYXQiOjE3NDEzMjkyMjUsImV4cCI6MTc0MTQxNTYyNX0.NZKN9uRiCeVaXodn3Nyz4ncymGlv853cCFLrdeWoY9E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"usuario\": {\r\n        \"_id\": \"67ca7d30c562094084f099d3\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3002/gestorDeVentas/v1/factura/procesarCompra",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3002",
+							"path": [
+								"gestorDeVentas",
+								"v1",
+								"factura",
+								"procesarCompra"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Factura",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3ZTA2MWZiMTM1YmM4ZWNlYmIyZTQiLCJpYXQiOjE3NDEzMjk1NzYsImV4cCI6MTc0MTQxNTk3Nn0.pVnKkgVDMFv3qgzWKjrqYpRtSjQbnM2OOwhVtb_UeTc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productos\": [\r\n        {\r\n            \"idProducto\": \"67ca912f9611ec9ea2724bcd\",\r\n            \"cantidad\": 2,\r\n            \"precioProducto\": 25.0,\r\n            \"nombreProducto\": \"Tapacubos\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3002/gestorDeVentas/v1/factura/editarFactura/67ca93da9611ec9ea2724c0d",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3002",
+							"path": [
+								"gestorDeVentas",
+								"v1",
+								"factura",
+								"editarFactura",
+								"67ca93da9611ec9ea2724c0d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener factura por usuario",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2NhN2QzMGM1NjIwOTQwODRmMDk5ZDMiLCJpYXQiOjE3NDEzMjkyMjUsImV4cCI6MTc0MTQxNTYyNX0.NZKN9uRiCeVaXodn3Nyz4ncymGlv853cCFLrdeWoY9E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"usuario\": {\r\n        \"_id\": \"67ca7d30c562094084f099d3\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3002/gestorDeVentas/v1/factura/obtenerFacturasPorUsuario",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3002",
+							"path": [
+								"gestorDeVentas",
+								"v1",
+								"factura",
+								"obtenerFacturasPorUsuario"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

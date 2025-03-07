@@ -1,6 +1,7 @@
 import User from "../user/user.model.js"
 import Categoria from "../categoria/categoria.model.js"
 import Producto from "../productos/productos.model.js"
+import Factura from "../factura/factura.model.js"
 
 export const emailExists = async (email = "") => {
     const existe = await User.findOne({email})
@@ -25,9 +26,9 @@ export const userExists = async (uid = " ") => {
 }
 
 export const categoriaExists = async (uid = " ") => {
-    const categoria = await Categoria.findById(uid)
-    if (!categoria) {
-        throw new Error("Categoría no encontrada");
+    const existe = await Categoria.findById(uid)
+    if (!existe) {
+        throw new Error("Categoria no encontrada");
     }
 };
 
@@ -42,5 +43,12 @@ export const nombreProductoExists = async (nombre = " ") => {
     const producto = await Producto.findOne({ nombreProducto: nombre })
     if (!producto) {
         throw new Error("Producto no encontrado");
+    }
+};
+
+export const facturaExists = async (uid = " ") => {
+    const factura = await Factura.findById(uid)
+    if (!factura) {
+        throw new Error("Factura no encontrada");
     }
 };
